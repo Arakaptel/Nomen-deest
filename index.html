@@ -2,430 +2,94 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard Pessoal</title>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 <style>
 :root{
-    --bg: #19184c;
-    --card: rgba(15,15,35,.78);
-    --border: rgba(193,157,212,.25);
-    --text: #e6dff0;
-    --accent: #c19dd4;
-    --glow: #d5a8ff;
+--primary:#738C9B;
+--card:#000A35;
+--bg:#000000;
+--text:#C4C4C4;
 }
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Segoe UI, sans-serif;
-}
-
-body{
-    min-height:100vh;
-    background:
-        linear-gradient(rgba(10,10,25,.65), rgba(10,10,25,.65)),
-        url("632261.png");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-    color:var(--text);
-}
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:30px;
-}
-
-h1{
-    text-align:center;
-    margin-bottom:25px;
-    color:var(--accent);
-    text-shadow:0 0 15px var(--glow);
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:15px;
-}
-
-.card{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-
-    min-height:80px;
-    padding:15px;
-
-    text-decoration:none;
-    color:var(--text);
-
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:16px;
-
-    backdrop-filter:blur(8px);
-
-    transition:.2s;
-}
-
-.card:hover{
-    transform:translateY(-3px);
-    border-color:var(--accent);
-    box-shadow:
-        0 0 12px rgba(193,157,212,.5),
-        0 0 25px rgba(193,157,212,.25);
-}
-
-.footer{
-    text-align:center;
-    margin-top:25px;
-    opacity:.7;
-    font-size:.9rem;
-}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Audiowide,sans-serif;padding:12px}
+header{text-align:center}
+#clock{font-size:2rem;margin:10px 0;color:var(--primary)}
+#search{width:100%;padding:12px;border:1px solid var(--primary);background:var(--card);color:var(--text);border-radius:10px}
+details{margin:12px 0}
+summary{color:var(--primary);font-size:1.1rem;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:10px}
+.card{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);background:var(--card);padding:10px;border-radius:12px;border:1px solid var(--primary)}
+.card:hover{box-shadow:0 0 10px var(--primary)}
+img{width:20px;height:20px}
 </style>
 </head>
-
 <body>
+<header>
+<h1>Dashboard</h1>
+<div id="clock"></div>
+<input id="search" placeholder="Pesquisar atalhos...">
+</header>
 
-<div class="fog"></div>
-
-<div class="overlay">
-
-    <div class="top">
-
-        <div id="clock">00:00</div>
-
-        <div id="date"></div>
-
-        <div id="weather">
-            🌤️ Carregando...
-        </div>
-
-    </div>
-
-    <div class="search-box">
-        <input
-            id="search"
-            placeholder="Pesquisar ou digite uma URL..."
-        >
-    </div>
-
-    <div class="section-title">
-        Ferramentas
-    </div>
-
-    <div class="grid">
-
-        <a href="https://www.photopea.com/" target="_blank">
-            🎨 Photopea
-        </a>
-
-        <a href="https://stackedit.io/" target="_blank">
-            📝 StackEdit
-        </a>
-
-        <a href="https://www.4devs.com.br/" target="_blank">
-            ⚙️ 4Devs
-        </a>
-
-        <a href="https://www.invertexto.com/gerador-email-temporario" target="_blank">
-            📧 Email Temp
-        </a>
-
-        <a href="https://venice.ai/chat" target="_blank">
-            🤖 Venice AI
-        </a>
-
-        <a href="https://playsearch.kaki87.net/" target="_blank">
-            📱 Play Search
-        </a>
-
-        <a href="https://www.virustotal.com/gui/home/upload" target="_blank">
-            🛡️ VirusTotal
-        </a>
-
-        <a href="https://tineye.com/" target="_blank">
-            🔎 TinEye
-        </a>
-
-    </div>
-<div class="section-title">
-    Redes Sociais
-</div>
-
-<div class="grid">
-
-    <a href="https://www.instagram.com/" target="_blank">
-        📷 Instagram
-    </a>
-
-    <a href="https://www.facebook.com/" target="_blank">
-        📘 Facebook
-    </a>
-
-    <a href="https://www.reddit.com/" target="_blank">
-        👽 Reddit
-    </a>
-
-    <a href="https://discord.com/app" target="_blank">
-        💬 Discord
-    </a>
-
-    <a href="https://www.pinterest.com/" target="_blank">
-        📌 Pinterest
-    </a>
-
-        </div>
-    <div class="section-title">
-        Downloads
-    </div>
-
-    <div class="grid">
-
-        <a href="https://pinterestdownloader.com/pt" target="_blank">
-            📌 Pinterest
-        </a>
-
-        <a href="https://fdown.net/pt/" target="_blank">
-            📘 Facebook
-        </a>
-
-        <a href="https://postimages.org/" target="_blank">
-            🖼️ Postimages
-        </a>
-
-        <a href="https://www.sittingonclouds.net/" target="_blank">
-            🎵 Sitting on Clouds
-        </a>
-
-    </div>
-
-    <div class="section-title">
-        Utilidades
-    </div>
-
-    <div class="grid">
-
-        <a href="https://www.supercalendario.com.br/calculadora-data" target="_blank">
-            📅 Datas
-        </a>
-
-        <a href="https://www.labnol.org/reverse/" target="_blank">
-            📷 Busca Reversa
-        </a>
-
-        <a href="https://pirataria.link/" target="_blank">
-            ☠️ Megathread
-        </a>
-
-        <a href="https://steamcommunity.com/profiles/76561198767980433/myworkshopfiles?browsefilter=mysubscriptions" target="_blank">
-            🎮 Workshop
-        </a>
-
-    </div>
-
-</div>
-
-<style>
-
-:root{
-    --bg:#19184c;
-    --glass:rgba(10,10,30,.65);
-    --border:rgba(215,180,255,.25);
-    --text:#eee;
-    --accent:#c6a3ff;
-}
-
-body{
-    margin:0;
-    min-height:100vh;
-    color:white;
-    background:
-    linear-gradient(rgba(5,5,20,.6),rgba(5,5,20,.6)),
-    url("632261.png");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-    font-family:Segoe UI,sans-serif;
-}
-
-.overlay{
-    padding:25px;
-    max-width:1300px;
-    margin:auto;
-}
-
-#clock{
-    font-size:4rem;
-    font-weight:700;
-    text-shadow:0 0 20px #d8b5ff;
-}
-
-#date{
-    opacity:.8;
-}
-
-#weather{
-    margin-top:10px;
-}
-
-.search-box{
-    margin:25px 0;
-}
-
-#search{
-    width:100%;
-    padding:16px;
-    border:none;
-    border-radius:16px;
-    background:var(--glass);
-    color:white;
-    backdrop-filter:blur(10px);
-    font-size:1rem;
-}
-
-.section-title{
-    margin:25px 0 12px;
-    color:var(--accent);
-    font-weight:bold;
-    letter-spacing:1px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:
-    repeat(auto-fill,minmax(220px,1fr));
-    gap:12px;
-}
-
-.grid a{
-    text-decoration:none;
-    color:white;
-    padding:18px;
-    background:var(--glass);
-    backdrop-filter:blur(10px);
-    border:1px solid var(--border);
-    border-radius:16px;
-    transition:.25s;
-}
-
-.grid a:hover{
-    transform:translateY(-3px);
-    box-shadow:
-        0 0 15px rgba(206,161,255,.5),
-        0 0 35px rgba(206,161,255,.25);
-}
-
-.fog{
-    position:fixed;
-    inset:-100px;
-    background:
-    radial-gradient(circle,
-    rgba(180,120,255,.15),
-    transparent 60%);
-    animation:fog 20s linear infinite;
-    pointer-events:none;
-}
-
-@keyframes fog{
-    from{
-        transform:translateX(-10%);
-    }
-    to{
-        transform:translateX(10%);
-    }
-}
-
-</style>
+<details open><summary>Todos os Links</summary><div class="grid" id="links"></div></details>
 
 <script>
+const data=[
+["PlaySearch","https://playsearch.kaki87.net/"],
+["Vivo Ads","https://internetgratis.vivo.com.br/#/home"],
+["Email Temporário","https://www.invertexto.com/gerador-email-temporario"],
+["Google","https://www.google.com/m?client=ms-android-samsung-rvo1&source=android-home"],
+["YouTube","https://m.youtube.com/"],
+["AliExpress","https://www.aliexpress.com/"],
+["TinEye","https://tineye.com/"],
+["MyInstants","https://www.myinstants.com/pt/index/br/"],
+["Venice AI","https://venice.ai/"],
+["VirusTotal","https://www.virustotal.com/gui/home/upload"],
+["Amazon","https://www.amazon.com.br/"],
+["StackEdit","https://stackedit.io/"],
+["Reddit","https://www.reddit.com/"],
+["eBay","https://br.ebay.com/"],
+["Steam Workshop","https://steamcommunity.com/profiles/76561198767980433/myworkshopfiles?browsefilter=mysubscriptions"],
+["Virgil Search APK","https://virgil.samidy.com/Mobile/#gsc.tab=0&gsc.sort=&gsc.q=Cat%20quest"],
+["TEMU","https://www.temu.com/"],
+["RapidSave","https://rapidsave.com/"],
+["SaveInsta","https://saveclip.app/pt"],
+["FDown","https://fdown.net/pt/download.php"],
+["Pinterest","https://www.pinterest.com/"],
+["Facebook","https://m.facebook.com/"],
+["Pinterest BR","https://br.pinterest.com/"],
+["Photopea","https://www.photopea.com/"],
+["Instagram","https://www.instagram.com/"],
+["F-Droid","https://f-droid.org/pt_BR/packages/"],
+["Mercado Livre","https://www.mercadolivre.com.br/"],
+["PinDown","https://pindown.io/pt1"],
+["Galaxy Shop","https://www.samsung.com/br/mobile/"],
+["Pirataria Megathread","https://pirataria.link/"],
+["4Devs","https://www.4devs.com.br/"],
+["DeviantArt","https://www.deviantart.com/"],
+["KRESKA.art","https://kreska.art/"],
+["RetroPad Editor","https://valent-in.github.io/retropad-editor/"]
+];
 
-function updateClock(){
+const container=document.getElementById("links");
 
-    const now = new Date();
-
-    document.getElementById("clock").innerHTML =
-        now.toLocaleTimeString("pt-BR",{
-            hour:"2-digit",
-            minute:"2-digit"
-        });
-
-    document.getElementById("date").innerHTML =
-        now.toLocaleDateString("pt-BR",{
-            weekday:"long",
-            day:"numeric",
-            month:"long"
-        });
-
+function render(filter=""){
+container.innerHTML="";
+data.filter(([n])=>n.toLowerCase().includes(filter.toLowerCase()))
+.forEach(([name,url])=>{
+const a=document.createElement("a");
+a.href=url;a.className="card";
+a.innerHTML=`<img src="https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=64">${name}`;
+container.appendChild(a);
+});
 }
+render();
 
-updateClock();
-setInterval(updateClock,1000);
+document.getElementById("search").addEventListener("input",e=>render(e.target.value));
 
-document
-.getElementById("search")
-.addEventListener("keydown",e=>{
-
-    if(e.key==="Enter"){
-
-        const q=e.target.value.trim();
-
-        if(!q) return;
-
-        if(q.includes(".")){
-            window.open(
-                q.startsWith("http")
-                ? q
-                : "https://" + q
-            );
-        }else{
-            window.open(
-                "https://www.google.com/search?q="
-                + encodeURIComponent(q)
-            );
-        }
-
-    }
-
-});
-
-/*
-CLIMA
-
-Crie uma chave gratuita:
-https://openweathermap.org/api
-
-Substitua SUA_CHAVE_AQUI
-*/
-
-navigator.geolocation.getCurrentPosition(async pos=>{
-
-const lat=pos.coords.latitude;
-const lon=pos.coords.longitude;
-
-try{
-
-const apiKey="SUA_CHAVE_AQUI";
-
-const r=await fetch(
-`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=pt_br&appid=${apiKey}`
-);
-
-const data=await r.json();
-
-document.getElementById("weather")
-.innerHTML=
-`🌡️ ${Math.round(data.main.temp)}°C · ${data.weather[0].description}`;
-
-}catch{}
-
-});
-
+setInterval(()=>{
+document.getElementById("clock").textContent=new Date().toLocaleTimeString("pt-BR");
+},1000);
 </script>
-
 </body>
+</html>
