@@ -12,26 +12,173 @@
 --bg:#000000;
 --text:#C4C4C4;
 }
-body{margin:0;background:var(--bg);color:var(--text);font-family:Audiowide,sans-serif;padding:12px}
-header{text-align:center}
-#clock{font-size:2rem;margin:10px 0;color:var(--primary)}
-#search{width:100%;padding:12px;border:1px solid var(--primary);background:var(--card);color:var(--text);border-radius:10px}
-details{margin:12px 0}
-summary{color:var(--primary);font-size:1.1rem;cursor:pointer}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:10px}
-.card{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);background:var(--card);padding:10px;border-radius:12px;border:1px solid var(--primary)}
-.card:hover{box-shadow:0 0 10px var(--primary)}
-img{width:20px;height:20px}
+body{
+    margin:0;
+    min-height:100vh;
+    padding:12px;
+    font-family:Audiowide,sans-serif;
+    color:var(--text);
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.75)
+        ),
+        url("jackfrost.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+header{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    color:var(--primary);
+    text-shadow:
+        0 0 10px var(--primary),
+        0 0 20px var(--primary);
+}
+
+#clock{
+    font-size:2rem;
+    margin:15px 0;
+    color:var(--primary);
+    text-shadow:
+        0 0 10px var(--primary),
+        0 0 20px var(--primary);
+}
+
+/* Pesquisa Google */
+#google-search{
+    width:100%;
+    padding:14px;
+    margin-bottom:12px;
+    border-radius:12px;
+    border:1px solid var(--primary);
+    background:var(--card);
+    color:var(--text);
+    backdrop-filter:blur(8px);
+    outline:none;
+    font-family:inherit;
+}
+
+#google-search:focus{
+    box-shadow:0 0 20px var(--primary);
+}
+
+/* Pesquisa de atalhos */
+#search{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid var(--primary);
+    background:var(--card);
+    color:var(--text);
+    backdrop-filter:blur(8px);
+    outline:none;
+    font-family:inherit;
+}
+
+#search:focus{
+    box-shadow:0 0 20px var(--primary);
+}
+
+details{
+    max-width:1200px;
+    margin:20px auto;
+}
+
+summary{
+    cursor:pointer;
+    color:var(--primary);
+    font-size:1.1rem;
+    margin-bottom:10px;
+    text-shadow:0 0 10px var(--primary);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+    gap:12px;
+    margin-top:10px;
+}
+
+.card{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    text-decoration:none;
+    color:var(--text);
+
+    padding:12px;
+
+    background:var(--card);
+    backdrop-filter:blur(10px);
+
+    border-radius:14px;
+
+    border:1px solid rgba(115,140,155,.45);
+
+    transition:.25s ease;
+}
+}
+
+.card:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 10px #8fb8d1,
+        0 0 20px #8fb8d1,
+        0 0 35px rgba(143,184,209,.5);
+}
+
+.card img{
+    width:24px;
+    height:24px;
+}
+
+footer{
+    text-align:center;
+    margin-top:30px;
+    opacity:.8;
+    font-size:.8rem;
+}
 </style>
+
 </head>
+
 <body>
+
 <header>
-<h1>Dashboard</h1>
+    <h1>Atalhos</h1>
 <div id="clock"></div>
-<input id="search" placeholder="Pesquisar atalhos...">
+
+<form action="https://www.google.com/search" method="GET" target="_blank">
+    <input
+        id="google-search"
+        name="q"
+        placeholder="Pesquisar no Google..."
+        autocomplete="off">
+</form>
+
+<input
+    id="search"
+    placeholder="Filtrar atalhos..."
+    autocomplete="off">
+
 </header>
 
-<details open><summary>Todos os Links</summary><div class="grid" id="links"></div></details>
+<details open>
+    <summary>Todos os Links</summary>
+    <div class="grid" id="links"></div>
+</details>
 
 <script>
 const data=[
@@ -67,25 +214,49 @@ const data=[
 ["Calculadora data","https://www.supercalendario.com.br/calculadora-data"],
 ];
 
-const container=document.getElementById("links");
 
-function render(filter=""){
-container.innerHTML="";
-data.filter(([n])=>n.toLowerCase().includes(filter.toLowerCase()))
-.forEach(([name,url])=>{
-const a=document.createElement("a");
-a.href=url;a.className="card";
-a.innerHTML=`<img src="https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=64">${name}`;
-container.appendChild(a);
-});
+const container = document.getElementById("links");
+
+function render(filter = ""){
+    container.innerHTML = "";
+
+    data
+    .filter(([name]) =>
+        name.toLowerCase().includes(filter.toLowerCase())
+    )
+    .forEach(([name,url]) => {
+
+        const a = document.createElement("a");
+
+        a.href = url;
+        a.target = "_blank";
+        a.className = "card";
+
+        a.innerHTML = `
+            <img src="https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=64">
+            <span>${name}</span>
+        `;
+
+        container.appendChild(a);
+    });
 }
+
 render();
 
-document.getElementById("search").addEventListener("input",e=>render(e.target.value));
+document
+.getElementById("search")
+.addEventListener("input", e => {
+    render(e.target.value);
+});
 
-setInterval(()=>{
-document.getElementById("clock").textContent=new Date().toLocaleTimeString("pt-BR");
-},1000);
+function updateClock(){
+    document.getElementById("clock").textContent =
+        new Date().toLocaleTimeString("pt-BR");
+}
+
+updateClock();
+setInterval(updateClock, 1000);
 </script>
+
 </body>
 </html>
